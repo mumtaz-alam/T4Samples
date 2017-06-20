@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+[TestClass]
+    public class Test
+    {
+
+
+
+
+[TestMethod]
+Public Void Testget_Speed()
+{
+Car c = new Car();
+dynamic result = c.get_Speed() 
+}
+[TestMethod]
+Public Void TestAccelerate()
+{
+Car c = new Car();
+dynamic result = c.Accelerate(null) 
+}
+[TestMethod]
+Public Void TestIsMoving()
+{
+Car c = new Car();
+dynamic result = c.IsMoving() 
+}
+[TestMethod]
+Public Void TestcalculateMPG()
+{
+Car c = new Car();
+dynamic result = c.calculateMPG(null,null,null) 
+}
+[TestMethod]
+Public Void TestToString()
+{
+Car c = new Car();
+dynamic result = c.ToString() 
+}
+[TestMethod]
+Public Void TestEquals()
+{
+Car c = new Car();
+dynamic result = c.Equals(null) 
+}
+[TestMethod]
+Public Void TestGetHashCode()
+{
+Car c = new Car();
+dynamic result = c.GetHashCode() 
+}
+[TestMethod]
+Public Void TestGetType()
+{
+Car c = new Car();
+dynamic result = c.GetType() 
+}
+
+[TestMethod]
+Public Void Testget_Speed()
+{
+Car c = new Car();
+dynamic result = c.get_Speed() 
+}
+[TestMethod]
+Public Void TestAccelerate()
+{
+Car c = new Car();
+dynamic result = c.Accelerate(0) 
+}
+[TestMethod]
+Public Void TestIsMoving()
+{
+Car c = new Car();
+dynamic result = c.IsMoving() 
+}
+[TestMethod]
+Public Void TestcalculateMPG()
+{
+Car c = new Car();
+dynamic result = c.calculateMPG(0,0,0) 
+}
+[TestMethod]
+Public Void TestToString()
+{
+Car c = new Car();
+dynamic result = c.ToString() 
+}
+[TestMethod]
+Public Void TestEquals()
+{
+Car c = new Car();
+dynamic result = c.Equals(null) 
+}
+[TestMethod]
+Public Void TestGetHashCode()
+{
+Car c = new Car();
+dynamic result = c.GetHashCode() 
+}
+[TestMethod]
+Public Void TestGetType()
+{
+Car c = new Car();
+dynamic result = c.GetType() 
+}
+
+	
+	
+			
+
+

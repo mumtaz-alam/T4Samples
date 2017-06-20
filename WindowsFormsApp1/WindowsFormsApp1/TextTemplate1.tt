@@ -1,0 +1,60 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ assembly name="$(TargetPath)" #>
+<#@ import namespace="WindowsFormsApp1" #>
+<#@ output extension=".txt" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+[TestClass]
+    public class Test
+    {
+
+
+<#string className="car";
+string [] str={"",""};
+string strfrmt="\n[TestMethod]\nPublic Void Test{1}()\n|OCurly|\nCar c = new Car();\ndynamic result = c.{1}{2} \n|CCurly|";
+//"[TestMethod]Public Void Test{1}(){\nCar c = new Car();\n c.{1}{2} "
+Type t = typeof(Car);
+MethodInfo[] mi = t.GetMethods();
+            foreach (MethodInfo m in mi)
+            {
+                string mname = m.Name;
+                // Get return value. 
+                string retVal = m.ReturnType.FullName;
+                //StringBuilder paramInfo = new StringBuilder();
+                //paramInfo.Append("(");
+				string [] paramInfo = {"",""};
+                paramInfo[0]=paramInfo[0]+"(";
+				paramInfo[1]=paramInfo[1]+"(";
+                // Get params. 
+                foreach (ParameterInfo pi in m.GetParameters())
+                {
+                    //paramInfo.Append(string.Format("{0} {1} ", pi.ParameterType,pi.Name));
+					paramInfo[0]=paramInfo[0]+string.Format("{0},", "null");
+					paramInfo[1]=paramInfo[1]+string.Format("{0},", (pi.ParameterType.Default()==null)?"null": pi.ParameterType.Default().ToString());
+                }
+                //paramInfo.Append(")");
+				paramInfo[0]=(paramInfo[0].EndsWith(",") ? paramInfo[0].TrimEnd(','):paramInfo[0])+")";
+				paramInfo[1]=(paramInfo[1].EndsWith(",") ? paramInfo[1].TrimEnd(','):paramInfo[1])+")";
+                str[0]= str[0]+ string.Format(strfrmt, retVal, m.Name, paramInfo[0]);
+				str[1]= str[1]+ string.Format(strfrmt, retVal, m.Name, paramInfo[1]);
+            }
+
+
+#>
+
+<#=str[0].Replace("|OCurly|", "{").Replace("|CCurly|", "}") #>
+<#=str[1].Replace("|OCurly|", "{").Replace("|CCurly|", "}") #>
+
+	
+	
+			
+
+
